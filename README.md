@@ -105,6 +105,12 @@ NASM version 2.10.09 compiled on Dec 29 2013
 ```
 
 
+Like MacOS, `.asm` file compiled via `nasm` except replacing `-o macho64` with `-o elf64`:
+
+```bash
+nasm -f elf64 hello.asm && ld -o res hello.o && ./res
+```
+
 ### References
 
 + https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl
