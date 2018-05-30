@@ -73,3 +73,39 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 + https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master ( Note: MacOS (xnu) BSD syscall numbers are pretty different from Linux based x64 syscall, https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl. )
 
 + The table-formatted version of the above link is https://sigsegv.pl/osx-bsd-syscalls/.
+
+
+## ubuntu
+
+### Environments
+
+```bash
+$ uname -a
+Linux vagrant-ubuntu-trusty-64 3.13.0-149-generic #199-Ubuntu SMP Thu May 17 10:12:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+$ sudo apt-get install nasm
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  nasm
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,503 kB of archives.
+After this operation, 3,285 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main nasm amd64 2.10.09-1 [1,503 kB]
+Fetched 1,503 kB in 3s (431 kB/s)
+Selecting previously unselected package nasm.
+(Reading database ... 63130 files and directories currently installed.)
+Preparing to unpack .../nasm_2.10.09-1_amd64.deb ...
+Unpacking nasm (2.10.09-1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Processing triggers for install-info (5.2.0.dfsg.1-2) ...
+Setting up nasm (2.10.09-1) ...
+vagrant@vagrant-ubuntu-trusty-64:~/asm/ubuntu$ nasm -v
+NASM version 2.10.09 compiled on Dec 29 2013
+```
+
+
+### References
+
++ https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl
++ http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
