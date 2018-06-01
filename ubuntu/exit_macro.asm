@@ -4,6 +4,7 @@ section .data
 section .text
   global _start
 
+; define macro first
 %macro exit 0
   mov rax, 60
   mov rdi, 0
