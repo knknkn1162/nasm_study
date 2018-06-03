@@ -263,7 +263,7 @@ The debugger, gdb is to allow you to see what's going on inside step by step.
 
 ```bash
 # Assume that `./res` is executable file
-# To display assembly as intel syntax, put `set disassembly-flavor intel` in the `./~gdbinit` file
+# To display assembly as intel syntax, put `set disassembly-flavor intel` in the `~/.gdbinit` file
 $ break _start
 $ start # type n to make breakpoint
 # I recommend to enter TUI-mode.
