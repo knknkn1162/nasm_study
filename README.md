@@ -115,3 +115,24 @@ nasm -f elf64 hello.asm && ld -o res hello.o && ./res
 
 + https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl
 + http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
+
+## brief introduction to gdb
+
+The debugger, gdb is to allow you to see what's going on inside step by step.
+
+### usage
+
+```bash
+# Assume that `./res` is executable file
+# To display assembly as intel syntax, put `set disassembly-flavor intel` in the `./~gdbinit` file
+$ break _start
+$ start # type n to make breakpoint
+# I recommend to enter TUI-mode.
+# Type `Ctrl-X + 2` twice and you can see the register information(same as `layout regs`) and the assembly information (`layout asm`)
+(gdb) si # have fun!
+```
+
+### command
+
++ si(stepi) .. step unit instruction
++ x [address] .. display address information
