@@ -259,13 +259,16 @@ nasm -f elf64 hello.asm && ld -o res hello.o && ./res
 
 The debugger, gdb is to allow you to see what's going on inside step by step.
 
-### usage
+### Usage
 
 ```bash
+$ sudo apt-get upgrade
+$ sudo apt-get install gdb
 # Assume that `./res` is executable file
+$ gdb ./res
 # To display assembly as intel syntax, put `set disassembly-flavor intel` in the `~/.gdbinit` file
-$ break _start
-$ start # type n to make breakpoint
+(gdb) break _start
+(gdb) start # type n to make breakpoint
 # I recommend to enter TUI-mode.
 # Type `Ctrl-X + 2` twice and you can see the register information(same as `layout regs`) and the assembly information (`layout asm`)
 (gdb) si # have fun!
