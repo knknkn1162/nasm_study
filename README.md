@@ -107,7 +107,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 + General purpose Registers(GPR) is as follows:
 
 |alias|Registers name|Description|Arguments|
-|---|---|---|---|---|
+|---|---|---|---|
 |rax|r0|Kind of an 'accumulator'|ID|
 |rbx|r3|Base register||
 |rcx|r1|Used for cycles(e.g. loop)||
