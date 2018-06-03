@@ -9,7 +9,7 @@ Assume to be x86-64:
 
 ```bash
 % uname -a
-Darwin mob07207.intranet.globis.jp 17.4.0 Darwin Kernel Version 17.4.0: Sun Dec 17 09:19:54 PST 2017; root:xnu-4570.41.2~1/RELEASE_X86_64 x86_64
+Darwin Kenta-Nakajima-no-MacBook-Pro.local 15.6.0 Darwin Kernel Version 15.6.0: Sun Jun  4 21:43:07 PDT 2017; root:xnu-3248.70.3~1/RELEASE_X86_64 x86_64
 % nasm -v
 NASM version 2.13.03 compiled on Feb  8 2018
 % nasm -hf
