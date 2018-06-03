@@ -47,7 +47,9 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 
 ### Registers
 
-|alias|Registers name|Description||Arguments|
++ General purpose Registers(GPR) is as follows:
+
+|alias|Registers name|Description|Arguments|
 |---|---|---|---|---|
 |rax|r0|Kind of an 'accumulator'|ID|
 |rbx|r3|Base register||
@@ -55,7 +57,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 |rdx|r2|Store data during input/output operations|3|
 |rsi|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|
 |rdi|r7|Destination index in string manipulation commands|1|
-|rbp||r5|Stack frame's base||
+|rbp|r5|Stack frame's base||
 |rsp|r4|Stores the address of the topmost element in the hardware stack||
 ||r8||5|
 ||r9||6|
@@ -66,6 +68,16 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 ||r14|||
 ||r15|||
 
++ other registers is as follows:
+
+|alias|Description|
+|---|---|
+|rsp|(ext)Instruction Pointer. It stores address of the next instruction to be executed|
+|rflags|(ext)Program Status and Control Register|
+|CS, DS, ES, SS, FS, and GS| segment registers|
+
+For more information, see chapter3 in `Intel® 64 and IA-32 Architectures Software Developer’s Manual`
+
 ### references
 
 + The gist page, https://gist.github.com/FiloSottile/7125822, describes the brief code and some references for MacOS.
@@ -74,6 +86,8 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 
 + The table-formatted version of the above link is https://sigsegv.pl/osx-bsd-syscalls/.
 
+
++ Intel® 64 and IA-32 Architectures Software Developer’s Manual, https://software.intel.com/en-us/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4
 
 ## ubuntu
 
