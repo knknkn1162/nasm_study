@@ -18,6 +18,7 @@ _start: ; entry point
   mov rdx, 5
   syscall
 
+  ; Without the syscall, interrupt with 6 will occur, in turn `Segmentation fault` message on the terminal
   mov rax, 60 ; exit
   mov rdi, 0
   syscall
