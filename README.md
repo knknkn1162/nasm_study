@@ -110,7 +110,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 |---|---|---|---|
 |rax|r0|Kind of an 'accumulator'|ID|
 |rbx|r3|Base register||
-|rcx|r1|Used for cycles(e.g. loop)||
+|rcx|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||
 |rdx|r2|Store data during input/output operations|3|
 |rsi|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|
 |rdi|r7|Destination index in string manipulation commands|1|
@@ -119,7 +119,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 ||r8||5|
 ||r9||6|
 ||r10|sometimes save the CPU flag when syscall instruction is executed|4|
-||r11|||
+||r11||changed by `syscall` instruction||
 ||r12|||
 ||r13|||
 ||r14|||
