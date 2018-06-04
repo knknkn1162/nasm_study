@@ -279,3 +279,43 @@ $ gdb ./res
 + si(stepi) .. step unit instruction
 + x [address] .. display address information
   + x &text ; display text global variables
+
+### examples
+
++ The `print` command displays content, whereas `x` command displays address itself.
+
+```asm
+section .data
+  text db "hello world", 10
+
+section .text
+  global _start
+_start:
+  mov rax, 1
+  mov rdi, 1
+  mov rsi, text
+  mov rdx, 13
+  syscall
+
+  mov rax, 60
+  mov rdi, 0
+  syscall
+```
+
+```bash
+# move the exec before `mov rdx, 13`.
+(gdb) print $rsi
+$1 = 6291672
+(gdb) x $rsi
+0x6000d8:       0x6c6c6568
+(gdb) x /s $rsi
+0x6000d8:       "hello world\n"
+(gdb) print text
+$2 = 1819043176
+(gdb) x text
+0x6c6c6568:     <error: Cannot access memory at address 0x6c6c6568>
+(gdb) x /s text
+0x6c6c6568:     <error: Cannot access memory at address 0x6c6c6568>
+(gdb) x &text
+0x6000d8:       "hello world\n"
+```
