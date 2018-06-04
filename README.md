@@ -278,3 +278,4 @@ $ gdb ./res
 
 + si(stepi) .. step unit instruction
 + x [address] .. display address information
+  + x &text ; display text global variables
