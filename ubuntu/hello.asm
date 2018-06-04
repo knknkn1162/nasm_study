@@ -1,9 +1,11 @@
-section .data
+; global, section, db are directives which control the translation process.
+section .data ; hold global variables
   text db "hello world", 10
 
-section .text
+section .text ; hold instructions
   global _start
-_start:
+; labels: just readable names and addresses
+_start: ; entry point
   mov rax, 1
   mov rdi, 1
   mov rsi, text
