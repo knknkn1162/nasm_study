@@ -20,6 +20,7 @@ print_reverse_uint:
   inc rsi
   cmp rax, 0
   je .print
+  ; without this instruction, Floating point exception (core dumped)
   mov rdx, 0
   jmp .loop
 .print:
