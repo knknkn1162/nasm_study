@@ -6,10 +6,10 @@ section .text
 
 _start:
   mov rdi, 356
-  call print_uint
+  call print_reverse_uint
   call exit
 
-print_uint:
+print_reverse_uint:
   mov rsi, rsi ; increment count
   mov rax, rdi
   mov rcx, 10
@@ -27,7 +27,7 @@ print_uint:
   mov rax, 1
   mov rdi, 1
   mov rdx, rsi
-  mov rsi, str
+  mov rsi, str ; 0x33, 0x35, 0x36. Note that little endian: multibyte numbers are stored in memory starting with the least significant bytes. The advantage of little endian is that we can discard the most significant bytes effectively converting the number from a wider format to a narrower one.
   syscall
   ret
   
