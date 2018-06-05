@@ -13,7 +13,6 @@ print_uint:
   mov r8, str ; store the str pointer
   mov rax, rdi
   mov rcx, 10
-  mov rbx, rsp
 .loop:
   mov rdx, 0 ; we must initialize rdx. without this, segmentation fault occurs
   div rcx ;rax:rdx
