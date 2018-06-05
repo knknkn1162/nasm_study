@@ -15,24 +15,23 @@ print_uint:
   mov rcx, 10
   mov rbx, rsp
 .loop:
+  mov rdx, 0 ; we must initialize rdx. without this, segmentation fault occurs
   div rcx ;rax:rdx
   add rdx, 48
   mov [r8], dl
   inc r8 ; increment address
   cmp rax, 0
-  je .print
-  mov rdx, 0
-  jmp .loop
+  jne .loop
 .print:
   mov rax, 1
   mov rdx, 1 ;count
   mov rdi, 1
-.print_loop:
   mov rsi, r8
+.print_loop:
   syscall
-  cmp r8, str
+  cmp rsi, str
   je .end
-  dec r8
+  dec rsi ; decrement address
   jmp .print_loop
 .end:
   ret
