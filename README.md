@@ -108,15 +108,15 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 
 |alias|Registers name|Description|Arguments|
 |---|---|---|---|
-|rax|r0|Kind of an 'accumulator'|ID|
-|rbx|r3|Base register||
-|rcx|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||
-|rdx|r2|Store data during input/output operations|3|
-|rsi|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|
-|rdi|r7|Destination index in string manipulation commands|1|
-|rbp|r5|Stack frame's base||
-|rsp|r4|Stores the address of the topmost element in the hardware stack||
-||r8||5|
+|rax--eax--ax--al|r0|Kind of an 'accumulator'|ID|
+|rbx--ebx--bx--bl|r3|Base register||
+|rcx--ecx--cx--cl|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||
+|rdx--edx--dx--dl|r2|Store data during input/output operations|3|
+|rsi--esi--si--sil|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|
+|rdi--edi--di--dil|r7|Destination index in string manipulation commands|1|
+|rbp--ebp--bp--bpl|r5|Stack frame's base||
+|rsp--esp--sp--spl|r4|Stores the address of the topmost element in the hardware stack||
+||r8--r8d--r8w--r8b||5|
 ||r9||6|
 ||r10|sometimes save the CPU flag when syscall instruction is executed|4|
 ||r11||changed by `syscall` instruction||
@@ -124,6 +124,8 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 ||r13|||
 ||r14|||
 ||r15|||
+
+
 
 + other registers is as follows:
 
