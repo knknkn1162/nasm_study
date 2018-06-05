@@ -14,7 +14,7 @@ print_uint:
   mov rax, rdi
   mov rcx, 10
 .loop:
-  mov rdx, 0 ; we must initialize rdx. without this, segmentation fault occurs
+  xor rdx, rdx ; we must initialize rdx. without this, segmentation fault occurs
   div rcx ;rax:rdx
   add rdx, 48
   mov [r8], dl
