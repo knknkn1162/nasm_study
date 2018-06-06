@@ -125,7 +125,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 ||r14|||
 ||r15|||
 
-
+Note) Command line arguments are on the stack, which is argc in the head.
 
 + other registers is as follows:
 
