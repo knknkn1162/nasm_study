@@ -257,6 +257,8 @@ nasm -f elf64 hello.asm && ld -o res hello.o && ./res
 + https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl
 + http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
 
++ Linux Cross Reference (lxr) online, https://elixir.bootlin.com/linux/latest/source
+
 ## Brief introduction to gdb
 
 The debugger, gdb is to allow you to see what's going on inside step by step.
