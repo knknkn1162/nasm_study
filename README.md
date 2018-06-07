@@ -247,6 +247,9 @@ Like MacOS, `.asm` file compiled via `nasm` except replacing `-o macho64` with `
 
 ```bash
 nasm -f elf64 hello.asm && ld -o res hello.o && ./res
+# options
+; -E file.asm .. preprocess file.asm
+; -d flag .. support `%ifdef flag` variable
 ```
 
 ### References
