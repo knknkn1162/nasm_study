@@ -119,7 +119,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 ||r8--r8d--r8w--r8b||5|
 ||r9||6|
 ||r10|sometimes save the CPU flag when syscall instruction is executed|4|
-||r11||changed by `syscall` instruction||
+||r11|changed by `syscall` instruction||
 ||r12|||
 ||r13|||
 ||r14|||
@@ -144,9 +144,6 @@ For more information, see chapter3 in `Intel® 64 and IA-32 Architectures Softwa
 + https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master ( Note: MacOS (xnu) BSD syscall numbers are pretty different from Linux based x64 syscall, https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl. )
 
 + The table-formatted version of the above link is https://sigsegv.pl/osx-bsd-syscalls/.
-
-
-+ Intel® 64 and IA-32 Architectures Software Developer’s Manual, https://software.intel.com/en-us/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4
 
 ## ubuntu
 
@@ -250,14 +247,22 @@ Like MacOS, `.asm` file compiled via `nasm` except replacing `-o macho64` with `
 
 ```bash
 nasm -f elf64 hello.asm && ld -o res hello.o && ./res
+# options
+; -E file.asm .. preprocess file.asm
+; -d flag .. support `%ifdef flag` variable
 ```
 
 ### References
 
 + https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl
+
 + http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
 
 + http://refspecs.linux-foundation.org/ .. Linux Standard Base (LSB), Single UNIX Specification(SUS), Debug With Attributed Record Format (DWARF), Executable and Linking Format (ELF), Application Binary Interface (ABI) standards reference
+
++ Intel® 64 and IA-32 Architectures Software Developer’s Manual, https://software.intel.com/en-us/download/intel-64-and-ia-32-architectures-sdm-combined-volumes-1-2a-2b-2c-2d-3a-3b-3c-3d-and-4
+
++ Linux Cross Reference (lxr) online, https://elixir.bootlin.com/linux/latest/source
 
 ## Brief introduction to gdb
 
