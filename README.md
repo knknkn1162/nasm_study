@@ -128,6 +128,24 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 Note1) Command line arguments are on the stack, which is argc in the head.
 Note2) For the terminology, Calling conventions, see [mpx-linux64-abi.pdf](https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf)
 
+Note3) Caller-saved-registers should be saved before invoking a function and restored after. Here is an example:
+
+```asm
+section .text
+  global _start
+_start:
+  ; snip
+  push rdi
+  push rsi
+  add rsi, 8
+  call func
+  pop rsi
+  pop rdi
+  ; snip
+func:
+  ; snip
+```
+
 + other registers is as follows:
 
 |alias|Description|
