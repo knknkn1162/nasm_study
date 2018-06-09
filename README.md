@@ -107,7 +107,7 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 + General purpose Registers(GPR) is as follows:
 
 |alias|Registers name|Description|Kernel interface Arguments|User-level application Arguments|stack cleanup by|
-|---|---|---|---|
+|---|---|---|---|---|---|
 |rax--eax--ax--al|r0|Kind of an 'accumulator'. Returning `syscall`, it's `-errno`|ID|||caller|
 |rbx--ebx--bx--bl|r3|Base register||callee|
 |rcx--ecx--cx--cl|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||**4**||caller
