@@ -335,6 +335,8 @@ _start:
   syscall
 ```
 
+Note) Note: 64-bit x86 uses syscall instead of interrupt 0x80(`int 0x80`).
+
 ```bash
 # move the exec before `mov rdx, 13`.
 (gdb) print $rsi
