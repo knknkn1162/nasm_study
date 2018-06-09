@@ -18,6 +18,7 @@ _start:
   mov rdi, str1
   mov rsi, str2
   call string_equals
+  ; print result
   add al, 48 ; stringify
   mov [ans], al
   mov rax, 1
