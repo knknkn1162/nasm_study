@@ -106,18 +106,18 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 
 + General purpose Registers(GPR) is as follows:
 
-|alias|Registers name|Description|Arguments|
+|alias|Registers name|Description|Kernel interface Arguments|User-level application Arguments|
 |---|---|---|---|
-|rax--eax--ax--al|r0|Kind of an 'accumulator'|ID|
+|rax--eax--ax--al|r0|Kind of an 'accumulator'|ID||
 |rbx--ebx--bx--bl|r3|Base register||
-|rcx--ecx--cx--cl|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||
-|rdx--edx--dx--dl|r2|Store data during input/output operations|3|
-|rsi--esi--si--sil|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|
-|rdi--edi--di--dil|r7|Destination index in string manipulation commands|1|
+|rcx--ecx--cx--cl|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||**4**|
+|rdx--edx--dx--dl|r2|Store data during input/output operations|3|3|
+|rsi--esi--si--sil|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|2|
+|rdi--edi--di--dil|r7|Destination index in string manipulation commands|1|1|
 |rbp--ebp--bp--bpl|r5|Stack frame's base||
 |rsp--esp--sp--spl|r4|Stores the address of the topmost element in the hardware stack||
-||r8--r8d--r8w--r8b||5|
-||r9||6|
+||r8--r8d--r8w--r8b||5|5|
+||r9||6|6|
 ||r10|sometimes save the CPU flag when syscall instruction is executed|4|
 ||r11|changed by `syscall` instruction||
 ||r12|||
