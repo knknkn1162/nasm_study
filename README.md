@@ -106,26 +106,27 @@ nasm -f macho64 hello.asm && ld -o res hello.o && ./res
 
 + General purpose Registers(GPR) is as follows:
 
-|alias|Registers name|Description|Kernel interface Arguments|User-level application Arguments|
+|alias|Registers name|Description|Kernel interface Arguments|User-level application Arguments|stack cleanup by|
 |---|---|---|---|
-|rax--eax--ax--al|r0|Kind of an 'accumulator'|ID||
-|rbx--ebx--bx--bl|r3|Base register||
-|rcx--ecx--cx--cl|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||**4**|
-|rdx--edx--dx--dl|r2|Store data during input/output operations|3|3|
-|rsi--esi--si--sil|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|2|
-|rdi--edi--di--dil|r7|Destination index in string manipulation commands|1|1|
-|rbp--ebp--bp--bpl|r5|Stack frame's base||
-|rsp--esp--sp--spl|r4|Stores the address of the topmost element in the hardware stack||
-||r8--r8d--r8w--r8b||5|5|
-||r9||6|6|
-||r10|sometimes save the CPU flag when syscall instruction is executed|4|
-||r11|changed by `syscall` instruction||
-||r12|||
-||r13|||
-||r14|||
-||r15|||
+|rax--eax--ax--al|r0|Kind of an 'accumulator'. Returning `syscall`, it's `-errno`|ID|||caller|
+|rbx--ebx--bx--bl|r3|Base register||callee|
+|rcx--ecx--cx--cl|r1|Used for cycles(e.g. loop), It was changed by `syscall` instruction||**4**||caller
+|rdx--edx--dx--dl|r2|Store data during input/output operations|3|3|caller|
+|rsi--esi--si--sil|r6|Source index in string manipulatinon commands (e.g `movsd`)|2|2|caller|
+|rdi--edi--di--dil|r7|Destination index in string manipulation commands|1|1|caller|
+|rbp--ebp--bp--bpl|r5|Stack frame's base||callee|
+|rsp--esp--sp--spl|r4|Stores the address of the topmost element in the hardware stack||callee|
+||r8--r8d--r8w--r8b||5|5|caller|
+||r9||6|6|caller|
+||r10|sometimes save the CPU flag when syscall instruction is executed|4|caller|
+||r11|changed by `syscall` instruction||caller|
+||r12|||callee|
+||r13|||callee|
+||r14|||callee|
+||r15|||callee|
 
-Note) Command line arguments are on the stack, which is argc in the head.
+Note1) Command line arguments are on the stack, which is argc in the head.
+Note2) For the terminology, Calling conventions, see [mpx-linux64-abi.pdf](https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf)
 
 + other registers is as follows:
 
