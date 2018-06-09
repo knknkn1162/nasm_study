@@ -8,10 +8,12 @@ global string_equals
 string_equals:
   xor rax, rax
 .loop:
-  cmp [dil], [sil]
+  mov dl, byte[rsi]
+  ; cmp byte[rdi], [sil] ; NOT Indirect Memory Addressing because sil is a pointer
+  cmp byte[rdi], dl
   jne .false
-  cmp rdi, 0
-  jmp .true
+  cmp byte[rdi], 0
+  je .true
   inc rdi
   inc rsi
   jmp .loop
