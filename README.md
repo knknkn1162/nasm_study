@@ -287,11 +287,16 @@ nasm -f elf64 hello.asm && ld -o res hello.o && ./res
 
 The debugger, gdb is to allow you to see what's going on inside step by step.
 
-### Usage
+### Install
 
 ```bash
 $ sudo apt-get upgrade
 $ sudo apt-get install gdb
+```
+
+### Usage
+
+```bash
 # Assume that `./res` is executable file
 $ gdb ./res
 # To display assembly as intel syntax, put `set disassembly-flavor intel` in the `~/.gdbinit` file
