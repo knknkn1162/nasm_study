@@ -309,6 +309,8 @@ nasm -f elf64 hello.asm && ld -o res hello.o && ./res
 
 + Linux Cross Reference (lxr) online, https://elixir.bootlin.com/linux/latest/source
 
++ x86, x86_64 opcode and Instruction Reference .. http://ref.x86asm.net/
+
 ## Brief introduction to gdb
 
 The debugger, gdb is to allow you to see what's going on inside step by step.
