@@ -182,16 +182,16 @@ hello world # Also, you can use readelf, hexdump to analyze ELF file!
 ### Environments
 
 ```bash
-$ uname -a
-Linux vagrant-ubuntu-trusty-64 3.13.0-149-generic #199-Ubuntu SMP Thu May 17 10:12:50 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
-$ cat /proc/cpuinfo
+# uname -a
+Linux bcd9df7291e8 4.9.87-linuxkit-aufs #1 SMP Wed Mar 14 15:12:16 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+# cat /proc/cpuinfo
 processor	: 0
 vendor_id	: GenuineIntel
 cpu family	: 6
 model		: 61
 model name	: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
 stepping	: 4
-cpu MHz		: 2700.120
+cpu MHz		: 2697.899
 cache size	: 3072 KB
 physical id	: 0
 siblings	: 1
@@ -203,75 +203,87 @@ fpu		: yes
 fpu_exception	: yes
 cpuid level	: 20
 wp		: yes
-flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq monitor ssse3 cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand lahf_lm abm 3dnowprefetch fsgsbase avx2 invpcid rdseed
-bogomips	: 5400.24
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht pbe syscall nx pdpe1gb lm constant_tsc rep_good nopl xtopology nonstop_tsc eagerfpu pni pclmulqdq dtes64 ds_cpl ssse3 sdbg fma cx16 xtpr pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch kaiser fsgsbase bmi1 avx2 bmi2 erms xsaveopt arat
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5395.79
 clflush size	: 64
 cache_alignment	: 64
 address sizes	: 39 bits physical, 48 bits virtual
 power management:
-$ cat /proc/meminfo
-MemTotal:         501700 kB
-MemFree:           37324 kB
-Buffers:           13060 kB
-Cached:           318720 kB
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 61
+model name	: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+stepping	: 4
+cpu MHz		: 2697.899
+cache size	: 3072 KB
+physical id	: 1
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 20
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht pbe syscall nx pdpe1gb lm constant_tsc rep_good nopl xtopology nonstop_tsc eagerfpu pni pclmulqdq dtes64 ds_cpl ssse3 sdbg fma cx16 xtpr pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch kaiser fsgsbase bmi1 avx2 bmi2 erms xsaveopt arat
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5200.21
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+# cat /proc/meminfo
+MemTotal:        2046940 kB
+MemFree:          253272 kB
+MemAvailable:    1656672 kB
+Buffers:           65904 kB
+Cached:          1438016 kB
 SwapCached:            0 kB
-Active:           276260 kB
-Inactive:         137940 kB
-Active(anon):      82528 kB
-Inactive(anon):      572 kB
-Active(file):     193732 kB
-Inactive(file):   137368 kB
+Active:           341100 kB
+Inactive:        1348348 kB
+Active(anon):     172048 kB
+Inactive(anon):    14736 kB
+Active(file):     169052 kB
+Inactive(file):  1333612 kB
 Unevictable:           0 kB
 Mlocked:               0 kB
-SwapTotal:             0 kB
-SwapFree:              0 kB
+SwapTotal:       1048572 kB
+SwapFree:        1048572 kB
 Dirty:                 0 kB
 Writeback:             0 kB
-AnonPages:         82448 kB
-Mapped:             9740 kB
-Shmem:               680 kB
-Slab:              38764 kB
-SReclaimable:      30892 kB
-SUnreclaim:         7872 kB
-KernelStack:         672 kB
-PageTables:         2524 kB
+AnonPages:        181492 kB
+Mapped:            88412 kB
+Shmem:              1260 kB
+Slab:              83084 kB
+SReclaimable:      65060 kB
+SUnreclaim:        18024 kB
+KernelStack:        4688 kB
+PageTables:         1796 kB
 NFS_Unstable:          0 kB
 Bounce:                0 kB
 WritebackTmp:          0 kB
-CommitLimit:      250848 kB
-Committed_AS:     144336 kB
+CommitLimit:     2072040 kB
+Committed_AS:     495492 kB
 VmallocTotal:   34359738367 kB
-VmallocUsed:        7428 kB
-VmallocChunk:   34359725564 kB
-HardwareCorrupted:     0 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
 AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
 HugePages_Total:       0
 HugePages_Free:        0
 HugePages_Rsvd:        0
 HugePages_Surp:        0
 Hugepagesize:       2048 kB
-DirectMap4k:       34752 kB
-DirectMap2M:      489472 kB
-$ sudo apt-get install nasm
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following NEW packages will be installed:
-  nasm
-0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 1,503 kB of archives.
-After this operation, 3,285 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main nasm amd64 2.10.09-1 [1,503 kB]
-Fetched 1,503 kB in 3s (431 kB/s)
-Selecting previously unselected package nasm.
-(Reading database ... 63130 files and directories currently installed.)
-Preparing to unpack .../nasm_2.10.09-1_amd64.deb ...
-Unpacking nasm (2.10.09-1) ...
-Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-Processing triggers for install-info (5.2.0.dfsg.1-2) ...
-Setting up nasm (2.10.09-1) ...
-vagrant@vagrant-ubuntu-trusty-64:~/asm/ubuntu$ nasm -v
-NASM version 2.10.09 compiled on Dec 29 2013
+DirectMap4k:       52652 kB
+DirectMap2M:     2043904 kB
+DirectMap1G:           0 kB
+# nasm -v
+NASM version 2.13.02
 ```
 
 
