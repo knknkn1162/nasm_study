@@ -170,16 +170,13 @@ For more information, see chapter3 in `Intel® 64 and IA-32 Architectures Softwa
 
 ```bash
 # When using docker itself
-docker build -t nasm_study # t .. tagged
-docker run -it -v $(pwd):/usr/src --name nasm_container nasm_study
+$ docker build -t nasm_study # t .. tagged
+$ docker run -it --rm -v $(pwd):/usr/src nasm_study # --rm : remote automatically when exit container.
 root@77a18ca7c730:/# cd user/src/ubuntu
 root@77a18ca7c730:/# nasm -f elf64 hello_world.asm
 root@77a18ca7c730:/# ld -o res hello_world.o
 root@77a18ca7c730:/# ./res
 hello world # Also, you can use readelf, hexdump to analyze ELF file!
-## remove
-docker stop nasm_container
-docker rm nasm_container
 ```
 
 ### Environments
