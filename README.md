@@ -387,6 +387,10 @@ $2 = 1819043176
 
 + GAS supports AT&T syntax, which is quite differnt from Intel syntax. See https://www.ibm.com/developerworks/library/l-gas-nasm/index.html. For Japanese only, this page, http://caspar.hazymoon.jp/OpenBSD/annex/gas.html is also useful.
 
++ Quick reference .. https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax#Quick_reference
+
++ complete reference .. https://sourceware.org/binutils/docs/as/
+
 ### assemble and link
 
 ```bash
