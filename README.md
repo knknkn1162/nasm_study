@@ -382,3 +382,17 @@ $2 = 1819043176
 (gdb) x &text
 0x6000d8:       "hello world\n"
 ```
+
+## GNU Assembler (GAS)
+
++ GAS supports AT&T syntax, which is quite differnt from Intel syntax. See https://www.ibm.com/developerworks/library/l-gas-nasm/index.html. For Japanese only, this page, http://caspar.hazymoon.jp/OpenBSD/annex/gas.html is also useful.
+
+### assemble and link
+
+```bash
+# as command contains in binutils
+# without o command, a.out file is output.
+as -o hello.o hello.s
+ld -o hello hello.o
+./hello
+```
